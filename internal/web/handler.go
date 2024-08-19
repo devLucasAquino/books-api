@@ -11,6 +11,10 @@ type BookHandlers struct {
 	service *service.BookService
 }
 
+func NewBookHandlers(service *service.BookService) *BookHandlers{
+	return &BookHandlers{service: service}
+}
+
 func (h *BookHandlers) GetBooks(w http.ResponseWriter, r *http.Request){
 	books, err := h.service.GetBooks()
 	if err != nil {
