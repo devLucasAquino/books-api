@@ -1,15 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-func sum(x, y int) (int, int) {
-	result := x + y
-	return result, 10
+func sum(x, y int) (int, error) {
+	if x + y > 5 {
+		return x + y, nil
+	}
+	return 0, errors.New("x+y is less than 5")
 }
 
 func main()	{
 
-	a, b := sum(1, 5)
-
-	fmt.Println(a, b)
+	a, err := sum(1, 2)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(a)
+	
 }
