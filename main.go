@@ -1,9 +1,16 @@
 package main
 
-func count(x, y int) int {
-	return x + y
-}
+import (
+	"fmt"
+	service "gobooks/internal/services"
+)
 
-func main()	{
-	println(count(1, 4))
+func main() {
+	book := service.Book{
+		ID: 1,
+		Title: "The Hobbit",
+		Author: "J.R.R. Tolkien",
+		Genre: "Fantasy",
+	}
+	fmt.Println("The book is: ", book.Title)
 }
