@@ -9,8 +9,8 @@ type Book struct {
 	Genre  string
 }
 
-func (b Book) GetFullBook() string {
-	return b.Title + " by " + b.Author
+func NewBookService (db *sql.DB) *BookService{
+	return &BookService{db: db}
 }
 
 type BookService struct {
