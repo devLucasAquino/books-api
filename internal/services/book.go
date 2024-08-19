@@ -6,3 +6,7 @@ type Book struct {
 	Author string
 	Genre string
 }
+
+func (b Book) GetFullBook() string {
+	return b.Title + " by " + b.Author
+}

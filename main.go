@@ -12,5 +12,5 @@ func main() {
 		Author: "J.R.R. Tolkien",
 		Genre: "Fantasy",
 	}
-	fmt.Println("The book is: ", book.Title)
+	fmt.Println(book.GetFullBook())
 }
