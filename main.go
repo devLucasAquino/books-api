@@ -1,9 +1,15 @@
 package main
 
-func count(x, y int) int {
-	return x + y
+import "fmt"
+
+func sum(x, y int) (int, int) {
+	result := x + y
+	return result, 10
 }
 
 func main()	{
-	println(count(1, 4))
+
+	a, b := sum(1, 5)
+
+	fmt.Println(a, b)
 }
