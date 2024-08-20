@@ -1,0 +1,25 @@
+GET http://localhost:8080/books 
+Accept: application/json
+
+POST http://localhost:8080/books
+Content-Type: application/json
+
+{
+    "title": "Clear Code",
+    "author": "Robert C. Martin",
+    "genre": "Software Engineering" 
+}
+
+GET http://localhost:8080/books/1
+Accept: application/json
+
+POST http://localhost:8080/books/1
+Accept: application/json
+
+{
+    "title": "Clear Code",
+    "author": "Robert C. Martin",
+    "genre": "Software Development" 
+}
+
+DELETE http://localhost:8080/books/1
