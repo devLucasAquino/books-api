@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	service "gobooks/internal/services"
 	"gobooks/internal/web"
+	"log"
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -11,7 +12,7 @@ import (
 
 func main() {
 
-	dsn := "root:root@tcp(localhost:3306)/booksdb"
+	dsn := "root:root@tcp(localhost:3306)/gobook"
 	// db, err := sql.Open("sqlite3", "./books.db")
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
