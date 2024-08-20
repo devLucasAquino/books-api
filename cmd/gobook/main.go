@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	service "gobooks/internal/services"
 	"gobooks/internal/web"
-	"log"
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
