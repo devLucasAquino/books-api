@@ -1,6 +1,10 @@
 package service
 
-import "database/sql"
+import (
+	"database/sql"
+	"fmt"
+	"time"
+)
 
 type Book struct {
 	ID     int
@@ -72,4 +76,14 @@ func (s *BookService) DeleteBook(id int) error {
 	query := "delete from books where id=?"
 	_, err := s.db.Exec(query, id)
 	return err
+}
+
+func (s *BookService) SimulateReading(bookID int, duration time.Duration, results chan <- string){
+	book, err := s.GetBookById(bookID)
+	if err != nil || book == nil {
+		results <- fmt.Sprintf("Book %d not found", book.Title)
+	}
+
+	time.Sleep(duration)
+	results <- fmt.Sprintf("Book %d read", book.Title)
 }

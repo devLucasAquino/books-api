@@ -13,8 +13,8 @@ func worker(workerID int, data chan int){
 }
 
 
-func main(){ // goroutine 1
-	ch := make(chan int) // empty
+func main(){ 
+	ch := make(chan int)
 	qntWorkers := 10
 
 	for i:= range qntWorkers{
