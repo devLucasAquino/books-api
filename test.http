@@ -1,18 +1,22 @@
+### Get books
 GET http://localhost:8080/books 
 Accept: application/json
 
+### Add new book
 POST http://localhost:8080/books
 Content-Type: application/json
 
 {
-    "title": "Clear Code",
-    "author": "Robert C. Martin",
+    "title": "Full Cicle",
+    "author": "Lucas",
     "genre": "Software Engineering" 
 }
 
+### Get book by id
 GET http://localhost:8080/books/1
 Accept: application/json
 
+### Update book by id
 POST http://localhost:8080/books/1
 Accept: application/json
 
@@ -22,4 +26,5 @@ Accept: application/json
     "genre": "Software Development" 
 }
 
-DELETE http://localhost:8080/books/1
+### Delete book
+DELETE http://localhost:8080/books/5
