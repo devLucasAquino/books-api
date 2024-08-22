@@ -17,7 +17,7 @@ func NewBookCLI(service *service.BookService) *BookCLI{
 	return &BookCLI{service: service}
 }
 
-func (cli *BookCLI) run(){
+func (cli *BookCLI) Run(){
 	if len(os.Args) < 2{
 		fmt.Println("Usage: books <command> [arguments]")
 		return
