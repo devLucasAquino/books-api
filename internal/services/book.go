@@ -78,6 +78,26 @@ func (s *BookService) DeleteBook(id int) error {
 	return err
 }
 
+func (s *BookService) SearchBooksByName(name string) ([]Book, error) {
+	query := "select id, title, author, genre from books where title like ?"
+	rows, err := s.db.Query(query, "%"+name+"%")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var books []Book
+	for rows.Next(){
+		var book Book
+		err := rows.Scan(&book.ID, &book.Title, &book.Author, &book.Genre)
+		if err != nil {
+			return nil, err
+		}
+		books = append(books, book)
+	}
+	return books, nil
+}
+
 func (s *BookService) SimulateReading(bookID int, duration time.Duration, results chan <- string){
 	book, err := s.GetBookById(bookID)
 	if err != nil || book == nil {
